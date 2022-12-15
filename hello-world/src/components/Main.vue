@@ -3,7 +3,7 @@
     <div class="results-content">
       <h4>Site &#160; / &#160; List of respondents</h4>
       <table class="table-results">
-        <tbody v-on:scroll="registeredUsers">
+        <tbody>
           <tr class="table-placeholder">
             <td>{{ name }}</td>
             <td>{{ email }}</td>
