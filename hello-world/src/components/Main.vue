@@ -2,22 +2,34 @@
   <main id="results">
     <div class="results-content">
       <h4>Site &#160; / &#160; List of respondents</h4>
-      <table class="table-results">
-        <tbody>
-          <tr class="table-placeholder">
-            <td>{{ name }}</td>
-            <td>{{ email }}</td>
-            <td>{{ tel }}</td>
-            <td>{{ results }}</td>
-          </tr>
-          <tr v-for="users in usersArr" class="table-data">
-            <td>{{ users.userName }}</td>
-            <td>{{ users.userEmail }}</td>
-            <td>{{ users.userPhone }}</td>
-            <td>{{ users.userResult }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="table-results">
+          <tbody>
+            <tr class="table-placeholder">
+              <td>{{ name }}</td>
+              <td>{{ email }}</td>
+              <td>{{ tel }}</td>
+              <td>{{ results }}</td>
+            </tr>
+            <tr
+              v-for="users in registeredUserArr"
+              v-show="isUserExist()"
+              class="table-data"
+            >
+              <td>{{ users.userName }}</td>
+              <td>{{ users.userEmail }}</td>
+              <td>{{ users.userPhone }}</td>
+              <td>{{ users.userResult }}</td>
+            </tr>
+            <tr v-for="users in othersArr" class="table-others">
+              <td>{{ users.name }}</td>
+              <td>{{ users.email }}</td>
+              <td>{{ users.phone }}</td>
+              <td>{{ users.results }}/10</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
 </template>
@@ -33,9 +45,9 @@ export default {
       userName: "",
       userEmail: "",
       userPhone: "",
-      userResult: "0",
-      usersArr: [
-        // получение данных пользователя и результатов опроса
+      userResult: "",
+      registeredUserArr: [
+        // получение данных пользователя
         {
           userName: (this.userName = JSON.parse(localStorage.getItem("name"))),
           userEmail: (this.userEmail = JSON.parse(
@@ -47,7 +59,32 @@ export default {
           )),
         },
       ],
+      othersArr: {
+        anotherUserOne: {
+          name: "Michael Johnson",
+          email: "michaelmail@mail.com",
+          phone: "+79895467336",
+          results: 5,
+        },
+        anotherUserTwo: {
+          name: "Elon Musk",
+          email: "elon@mail.com",
+          phone: "+75648875384",
+          results: 10,
+        },
+        anotherUserThree: {
+          name: "Steve Jobs",
+          email: "jobssteveee@mail.com",
+          phone: "+75456877478",
+          results: 9,
+        },
+      },
     };
+  },
+  methods: {
+    isUserExist() {
+      return localStorage.length !== 0;
+    },
   },
 };
 </script>
@@ -71,10 +108,18 @@ export default {
   width: 1400px;
 }
 
-.table-data {
-  color: #636b75;
+.table-data,
+.table-others {
+  color: #52555a;
   font-weight: 300;
   letter-spacing: -0.011em;
+}
+
+.table-container {
+  margin-top: 30px;
+  border-radius: 5px;
+  height: 70vh;
+  border: 1px solid #dde1e6;
 }
 
 table {
@@ -84,10 +129,8 @@ table {
   border-collapse: separate;
   border-spacing: 0;
   box-sizing: border-box;
-  border: 1px solid #dde1e6;
+  border: none;
   border-bottom: #636b7500;
-  border-radius: 6px;
-  margin-top: 31px;
 }
 
 .table-placeholder {

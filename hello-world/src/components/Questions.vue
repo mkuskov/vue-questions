@@ -340,6 +340,7 @@ export default {
       localStorage.name = JSON.stringify(this.name);
       localStorage.email = JSON.stringify(this.email);
       localStorage.tel = JSON.stringify(this.tel);
+      localStorage.results = JSON.stringify("0/10");
     },
   },
   computed: {
