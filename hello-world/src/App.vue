@@ -10,12 +10,9 @@
 <script>
 export default {
   data() {
-    return {
-      isStarted: JSON.parse(localStorage.getItem('isInterviewStarted')),
-      localStorageData: localStorage.length,
-    }
+    return {};
   },
-}
+};
 </script>
 
 <style>
@@ -45,7 +42,7 @@ header {
 }
 
 #app {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   border-radius: 15px;
 }
 
@@ -58,7 +55,7 @@ header {
   font-size: 16px;
   text-decoration: none;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
   padding: 10px;
   border-radius: 5px;
   color: white;
@@ -67,21 +64,21 @@ header {
 
 .pass {
   width: 150px;
-  background-color: #27AE60;
+  background-color: #27ae60;
 }
 
 .list {
   width: 180px;
-  background-color: #2F54EB;
+  background-color: #2f54eb;
 }
 
 .list:hover {
-  transition: .2s;
+  transition: 0.2s;
   background-color: #203fb9;
 }
 
 .pass:hover {
-  transition: .2s;
+  transition: 0.2s;
   background-color: #218f4f;
 }
 </style>
