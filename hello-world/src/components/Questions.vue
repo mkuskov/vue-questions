@@ -1,9 +1,5 @@
 <template>
-  <main
-    id="registration"
-    v-if="localStorageData === 0"
-    v-for="items in renderRegistration"
-  >
+  <main id="registration" v-for="items in renderRegistration">
     <Form @submit="onSubmit">
       <div class="container">
         <h4>Site&#160; / &#160;Interview</h4>
@@ -193,8 +189,7 @@ export default {
   data() {
     return {
       localStorageData: localStorage.length,
-      isInterviewStarted: false,
-      renderRegistration: ["1"],
+      renderRegistration: localStorage.length === 0 ? ["1"] : [],
       name: "",
       email: "",
       tel: "",
@@ -262,7 +257,7 @@ export default {
     updateRegistration() {
       this.renderRegistration.shift();
       this.renderQuestions.push(1);
-      console.log(this.renderRegistration, this.renderQuestions);
+      this.isRegistered = true;
     },
     // след. вопрос
     next() {
@@ -481,6 +476,7 @@ h4 {
 }
 
 .progressbar {
+  margin-bottom: 20vh;
   text-align: left;
   align-items: center;
   justify-content: center;
@@ -513,11 +509,8 @@ h2 {
 }
 
 .container-quest {
-  width: 65%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
 }
 
 p {
