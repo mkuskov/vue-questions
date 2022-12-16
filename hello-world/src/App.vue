@@ -1,8 +1,10 @@
 <template>
   <header>
     <p class="interview-title">Interview</p>
-    <router-link to="/" class="list">Список опрошенных</router-link>
-    <router-link to="/questions" class="pass">Пройти опрос</router-link>
+    <div class="btns">
+      <router-link to="/" class="list">Список опрошенных</router-link>
+      <router-link to="/questions" class="pass">Пройти опрос</router-link>
+    </div>
   </header>
   <router-view class="content"></router-view>
 </template>
@@ -18,17 +20,18 @@ export default {
 <style>
 body {
   margin: 0;
-  background-color: #ececec;
+  background-color: #ffffff;
 }
 
 header {
-  margin-top: 1.5%;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  background-color: #f2f2f2;
   text-align: center;
-  width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: 4.5fr 1fr 1fr;
+  display: flex;
+  justify-content: space-around;
 }
 
 .interview-title {
@@ -44,6 +47,10 @@ header {
 #app {
   font-family: "Inter", sans-serif;
   border-radius: 15px;
+}
+
+.btns {
+  margin-top: 5px;
 }
 
 .list {

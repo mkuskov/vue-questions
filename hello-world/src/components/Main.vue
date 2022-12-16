@@ -1,7 +1,7 @@
 <template>
   <main id="results">
     <div class="results-content">
-      <h4>Site &#160; / &#160; List of respondents</h4>
+      <h4>Site &#160;/&#160; List of respondents</h4>
       <div class="table-container">
         <table class="table-results">
           <tbody>
@@ -90,11 +90,6 @@ export default {
 </script>
 
 <style scoped>
-#results {
-  height: 90.6vh;
-  background-color: #fff;
-}
-
 #results h4 {
   font-weight: 500;
   color: #636b75;

@@ -2,7 +2,7 @@
   <main id="registration" v-for="items in renderRegistration">
     <Form @submit="onSubmit">
       <div class="container">
-        <h4>Site&#160; / &#160;Interview</h4>
+        <h4>Site &#160;/&#160; Interview</h4>
         <div class="fields">
           <p>Full Name</p>
           <Field
@@ -188,12 +188,12 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
   data() {
     return {
-      localStorageData: localStorage.length,
-      renderRegistration: localStorage.length === 0 ? ["1"] : [],
+      localStorageData: localStorage?.length,
+      renderRegistration: localStorage?.length === 0 ? ["1"] : [],
       name: "",
       email: "",
       tel: "",
-      renderQuestions: localStorage.length > 0 ? ["1"] : [],
+      renderQuestions: localStorage?.length > 0 ? ["1"] : [],
       title: "Вопросы:",
       questionIndex: 0,
       radios: 0,
@@ -352,12 +352,6 @@ export default {
 </script>
 
 <style scoped>
-#registration {
-  margin-top: 20px;
-  height: 90.6vh;
-  background-color: #fff;
-}
-
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -377,12 +371,8 @@ h4 {
 }
 
 .fields {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  width: 20%;
+  padding-top: 4%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   margin: auto;
