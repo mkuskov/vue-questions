@@ -440,13 +440,6 @@ h4 {
   transform: scale(1.03);
   background-color: #1f914e;
 }
-
-#questions {
-  width: 100%;
-  height: 90.6vh;
-  background-color: #fff;
-}
-
 .progress-step {
   width: 145.2px;
   background-color: #c1c9d2;
