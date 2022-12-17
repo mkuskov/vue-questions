@@ -59,37 +59,171 @@
       <h4>Site &#160; / &#160; Interview</h4>
       <p>{{ title }}</p>
       <div class="progressbar">
-        <div class="steps" v-for="questionsCount in questions">
-          <hr
-            class="progress-step"
-            :class="{
-              progressStepCurrent: questionsCount.id === questionIndex + 1,
-            }"
-          />
-          <span
-            class="progress-point"
-            @click="questionIndex = questionsCount.id - 1"
-          >
-            <img
-              src="../images/state.png"
-              alt="progress"
-              class="points"
-              v-if="questionsCount.id > questionIndex + 1"
+        <div class="steps">
+          <div>
+            <hr
+              class="progress-step"
+              :class="{
+                progressStepCurrent: questions[0].id === questionIndex + 1,
+              }"
             />
-            <img
-              src="../images/current.png"
-              alt="progress"
-              class="points"
-              v-if="questionsCount.id === questionIndex + 1"
+            <span
+              class="progress-point"
+              @click="questionIndex = questions[0].id - 1"
+            >
+              <img
+                src="../images/state.png"
+                alt="progress"
+                class="points"
+                v-if="radios === 0 && questions[0].id !== questionIndex + 1"
+              />
+              <img
+                src="../images/current.png"
+                alt="progress"
+                class="points"
+                v-if="questions[0].id === questionIndex + 1"
+              />
+              <img
+                src="../images/done.png"
+                alt="progress"
+                class="points"
+                v-if="questions[0].id !== questionIndex + 1 && radios !== 0"
+              />
+              <h2>Вопрос {{ questions[0].id }}&#160;</h2>
+            </span>
+          </div>
+          <div>
+            <hr
+              class="progress-step"
+              :class="{
+                progressStepCurrent: questions[1].id === questionIndex + 1,
+              }"
             />
-            <img
-              src="../images/done.png"
-              alt="progress"
-              class="points"
-              v-if="questionsCount.id < questionIndex + 1"
+            <span
+              class="progress-point"
+              @click="questionIndex = questions[1].id - 1"
+            >
+              <img
+                src="../images/state.png"
+                alt="progress"
+                class="points"
+                v-if="months === 0 && questions[1].id !== questionIndex + 1"
+              />
+              <img
+                src="../images/current.png"
+                alt="progress"
+                class="points"
+                v-if="questions[1].id === questionIndex + 1"
+              />
+              <img
+                src="../images/done.png"
+                alt="progress"
+                class="points"
+                v-if="questions[1].id !== questionIndex + 1 && months !== 0"
+              />
+              <h2>Вопрос {{ questions[1].id }}&#160;</h2>
+            </span>
+          </div>
+          <div>
+            <hr
+              class="progress-step"
+              :class="{
+                progressStepCurrent: questions[2].id === questionIndex + 1,
+              }"
             />
-            <h2>Вопрос {{ questionsCount.id }}&#160;</h2>
-          </span>
+            <span
+              class="progress-point"
+              @click="questionIndex = questions[2].id - 1"
+            >
+              <img
+                src="../images/state.png"
+                alt="progress"
+                class="points"
+                v-if="
+                  rainbow.length === 0 && questions[2].id !== questionIndex + 1
+                "
+              />
+              <img
+                src="../images/current.png"
+                alt="progress"
+                class="points"
+                v-if="questions[2].id === questionIndex + 1"
+              />
+              <img
+                src="../images/done.png"
+                alt="progress"
+                class="points"
+                v-if="
+                  questions[2].id !== questionIndex + 1 && rainbow.length !== 0
+                "
+              />
+              <h2>Вопрос {{ questions[2].id }}&#160;</h2>
+            </span>
+          </div>
+          <div>
+            <hr
+              class="progress-step"
+              :class="{
+                progressStepCurrent: questions[3].id === questionIndex + 1,
+              }"
+            />
+            <span
+              class="progress-point"
+              @click="questionIndex = questions[3].id - 1"
+            >
+              <img
+                src="../images/state.png"
+                alt="progress"
+                class="points"
+                v-if="particles === 0 && questions[3].id !== questionIndex + 1"
+              />
+              <img
+                src="../images/current.png"
+                alt="progress"
+                class="points"
+                v-if="questions[3].id === questionIndex + 1"
+              />
+              <img
+                src="../images/done.png"
+                alt="progress"
+                class="points"
+                v-if="questions[3].id !== questionIndex + 1 && particles !== 0"
+              />
+              <h2>Вопрос {{ questions[0].id }}&#160;</h2>
+            </span>
+          </div>
+          <div>
+            <hr
+              class="progress-step"
+              :class="{
+                progressStepCurrent: questions[4].id === questionIndex + 1,
+              }"
+            />
+            <span
+              class="progress-point"
+              @click="questionIndex = questions[4].id - 1"
+            >
+              <img
+                src="../images/state.png"
+                alt="progress"
+                class="points"
+                v-if="universe === 0 && questions[4].id !== questionIndex + 1"
+              />
+              <img
+                src="../images/current.png"
+                alt="progress"
+                class="points"
+                v-if="questions[4].id === questionIndex + 1"
+              />
+              <img
+                src="../images/done.png"
+                alt="progress"
+                class="points"
+                v-if="questions[4].id !== questionIndex + 1 && universe !== 0"
+              />
+              <h2>Вопрос {{ questions[4].id }}&#160;</h2>
+            </span>
+          </div>
         </div>
       </div>
       <div class="container-quest">
@@ -474,6 +608,10 @@ h4 {
 
 .points {
   margin-right: 5px;
+}
+
+.steps {
+  display: flex;
 }
 
 .steps h2 {
