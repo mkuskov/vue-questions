@@ -60,19 +60,19 @@ export default {
         },
       ],
       othersArr: {
-        anotherUserOne: {
+        firstUser: {
           name: "Michael Johnson",
           email: "michaelmail@mail.com",
           phone: "+79895467336",
           results: 5,
         },
-        anotherUserTwo: {
+        secondUser: {
           name: "Elon Musk",
           email: "elon@mail.com",
           phone: "+75648875384",
           results: 10,
         },
-        anotherUserThree: {
+        thirdUser: {
           name: "Steve Jobs",
           email: "jobssteveee@mail.com",
           phone: "+75456877478",
